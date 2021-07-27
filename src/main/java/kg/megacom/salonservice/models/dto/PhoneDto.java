@@ -7,6 +7,5 @@ public class PhoneDto {
 
     private Long id;
     private String phone;
-    private BranchDto branch;
 
 }

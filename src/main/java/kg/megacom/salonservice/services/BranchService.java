@@ -9,4 +9,10 @@ public interface BranchService {
 
     BranchDto save(BranchDto branchDto);
 
+    List<BranchDto> findAll();
+
+    BranchDto findById(Long id);
+
+    List<BranchDto> findBySalon(Long id);
+
 }

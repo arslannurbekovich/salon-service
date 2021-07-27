@@ -2,6 +2,8 @@ package kg.megacom.salonservice.models.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class BranchDto {
 
@@ -11,5 +13,7 @@ public class BranchDto {
     private double lon;
     private boolean active;
     private SalonDto salon;
+
+    List<PhoneDto> phones;
 
 }

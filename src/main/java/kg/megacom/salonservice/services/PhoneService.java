@@ -9,4 +9,6 @@ public interface PhoneService {
 
     PhoneDto save(PhoneDto phoneDto);
 
+    List<PhoneDto> saveAll(List<PhoneDto> phoneDtos);
+
 }
