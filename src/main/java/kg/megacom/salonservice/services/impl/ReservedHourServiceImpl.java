@@ -4,7 +4,11 @@ import kg.megacom.salonservice.dao.ReservedHourRepo;
 import kg.megacom.salonservice.exceptions.NotFound;
 import kg.megacom.salonservice.mappers.ReservedHourMapper;
 import kg.megacom.salonservice.models.dto.ReservedHourDto;
+import kg.megacom.salonservice.models.entity.MasterWorkDay;
 import kg.megacom.salonservice.models.entity.ReservedHour;
+import kg.megacom.salonservice.models.entity.StatusReserved;
+import kg.megacom.salonservice.services.ClientService;
+import kg.megacom.salonservice.services.MasterWorkDayService;
 import kg.megacom.salonservice.services.ReservedHourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +23,7 @@ public class ReservedHourServiceImpl implements ReservedHourService {
     private ReservedHourRepo reservedHourRepo;
 
     @Override
-    public ReservedHourDto save(ReservedHourDto reservedHourDto) {
+    public ReservedHourDto save(ReservedHourDto reservedHourDto) throws NotFound {
 
         return ReservedHourMapper.INSTANCE.toDto(reservedHourRepo.save(ReservedHourMapper.INSTANCE.toEntity(reservedHourDto)));
     }
@@ -48,4 +52,11 @@ public class ReservedHourServiceImpl implements ReservedHourService {
         }
         return ReservedHourMapper.INSTANCE.toDto(reservedHourRepo.save(ReservedHourMapper.INSTANCE.toEntity(reservedHourDto)));
     }
+
+    @Override
+    public List<ReservedHourDto> findByMasterWorkDayId(Long id) {
+        return ReservedHourMapper.INSTANCE.toDtos(reservedHourRepo.findAllByMasterWorkDayId(id));
+    }
+
+
 }

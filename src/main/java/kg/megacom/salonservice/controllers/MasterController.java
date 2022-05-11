@@ -24,7 +24,6 @@ public class MasterController {
         return masterService.update(masterDto);
     }
 
-
     @GetMapping("/all")
     public List<MasterDto> findAll() {
         return masterService.findAll();

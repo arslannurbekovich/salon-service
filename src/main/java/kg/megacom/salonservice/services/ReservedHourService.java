@@ -14,4 +14,6 @@ public interface ReservedHourService {
 
     ReservedHourDto update(ReservedHourDto adminDto);
 
+    List<ReservedHourDto> findByMasterWorkDayId(Long id);
+
 }
